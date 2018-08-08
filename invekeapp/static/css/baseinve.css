@@ -31,3 +31,56 @@ body, html {
     background-position: center;
     height: 70%;
   }
+.navbar navbar-expand-lg navbar-light{
+  position: fixed;
+}
+.collapse navbar-collapse {
+      padding-left: 240px;
+  }
+
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    word-spacing: 20px;
+}
+
+
+/* CSS for invest.html button */
+.button {
+    background-color:#3C393A;
+    
+    color: white;
+    padding: 40px 120px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 2px 2px;
+    cursor: pointer;
+    margin-top: -20px;
+}
+
+/* en d*/
+
+h4 {
+    color: red;
+}
+
+.bot {
+    max-width: 100%;
+    height: 100px;
+}
+
+.block {
+    background-image: url(https://images.unsplash.com/photo-1519120126473-8be7aedcd6c6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a55332dfc236b13f118ef77a36b4052f&auto=format&fit=crop&w=1350&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 40%;
+  }
+
+.inve {
+    margin-top: 30px;
+}

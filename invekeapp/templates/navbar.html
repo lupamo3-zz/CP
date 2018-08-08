@@ -1,13 +1,36 @@
 {% load bootstrap4 %}
 {% load static%}
 
-<nav class="navbar navbar-expand-lg navbar-light ">
+<!DOCTYPE html>
+<html lang="en">
 
-<a class="navbar-brand" href="#">
+<head>
+    <meta charset="utf-8"> 
+    
+    {% if title %}
+    <title>Jijenge - {{title}}</title>
+    {% else %}
+    <title> Jijenge </title>
+    {% endif %}
+    
+    {% block styles %} 
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/baseinve.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    {% endblock %}
+
+
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+
+<a class="navbar-brand" href="{% url 'home' %}">
     <img src="data:image/png;base64,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" width="60" height="60" class="d-inline-block align-top" alt="">
-                iNVE
-    </a>
-    <a class="navbar-brand" href="#">Navbar</a>
+                G-jenge            </a>
+    <a class="navbar-brand" href="{% url 'invest' %}">Investment in Kenya </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,29 +38,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Policies <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Opportunities</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            FAQ
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Salaries And Wages </a>
+            <a class="dropdown-item" href="#">Corporate Taxes</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Education Of Kenyans</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" href="#">About Us</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+     
     </div>
   </nav>
+  </body>
+  </html>

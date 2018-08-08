@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"> 
+    
+    {% if title %}
+    <title>Jijenge - {{title}}</title>
+    {% else %}
+    <title> Jijenge </title>
+    {% endif %}
+    
+    {% block styles %} 
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/baseinve.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% endblock %}
+
+<style>
+
+h3 {
+    color: #E4D2CD;
+}
+body {
+    background-color: #FDF7EE;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="block">
+</div>
+
+<div class="inve">
+    <div class="row">
+        <div class="col-md-12, col-sm-12 col-xs-12">
+            <h3 class="text-center">Our Investment Philosophy</h3>
+            <p class="text-center"> Our goal is to simplify investing so that anyone can be an investor. With this in mind,
+                <br> we hand-pick the investments we offer on our platform. This curated list is comprised of investing ideas
+                <br>that are well-known, approachable, and straightforward. You always get to choose how to invest your money,
+                <br> but you'll never be alone. We give you the choices, tools, and tips you need to build a portfolio that 
+                <br>returns the best. Along with information on all the legal requirements to set-up a business in Kenya. </p>
+        </div>
+    </div>
+</div>
+
+<div class="inve1">
+    <div class="row">
+        <div class="col-md-1 col-sm-1"></div>
+        <div class="col-sm-6 col-md-6">
+            <h2> Starting A Business In Kenya: </h2>
+        </div>
+        <div class="col-md-5 col-sm-5"></div>
+    </div>
+    <div class="container">
+    <h4> The Registrar of Companies is responsible for business registrations in Kenya. He/she issues certificates of compliance for foreign
+    <br> companies, certificates of incorporation for local companies and certificates of registration for sole proprietorship and partnerships.
+    </h4>
+    <h5> All company and business registrations (sole proprietorship and partnerships) are being done through the ecitizen online platform but for
+    <br> limited liability partnerships (LLPs) registrations which are still manual and are being done at the company registry.</h5>
+
+
+    <div class="row">
+    <div class="col-sm-6">
+    {% for jpg in jpg %}
+    <img src="{{jpg.locationjpg.url}}" class="img-responsive" alt="Image">
+    <h2 class="text-center">{{ jpg.investidea }}</h2>
+    <h2 class="text-center">{{ jpg.post }}</h2>
+    <h2 class="text-center">{{ jpg.pub_date }}</h2>
+    {% empty %}
+
+    {% endfor %}
+</div>
+<div class="col-sm-6">
+        {% for jpg in jpg %}
+        <img src="{{jpg.locationjpg.url}}" class="img-responsive" alt="Image">
+        <h2 class="text-center">{{ jpg.investidea }}</h2>
+        <h2 class="text-center">{{ jpg.post }}</h2>
+        <h2 class="text-center">{{ jpg.pub_date }}</h2>
+        {% empty %}
+<div class="row">
+    <h2 class="text-center">There No News Items</h2>
+</div>
+        {% endfor %}
+</div>
+</div>
+</div>
+
+</body>
+{% endblock %}
