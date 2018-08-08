@@ -1,5 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Business(models.Model):
@@ -25,3 +26,6 @@ class Business(models.Model):
     def get_all(cls):
         locationjpg=cls.objects.order_by('-pub_date')
         return locationjpg
+
+class Faq(models.Model):
+    faq=
