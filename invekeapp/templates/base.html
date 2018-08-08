@@ -15,6 +15,7 @@
     {% block styles %} 
         {% bootstrap_css %}
         <link rel="stylesheet" href="{% static 'css/baseinve.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     {% endblock %}
 
 
@@ -22,17 +23,18 @@
 
 
 <body>
-    <p> Hello, Lonely </p>
+    
     {% include "navbar.html" %}
-
-    {% block content %} 
-
-    {% endblock %} 
+    {% block content %}
+    <div class="bg">
+    <p> Hello, Lonely </p> 
 
     {% block scripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    {% bootstrap_javascript %}
-    {% endblock %}
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        {% bootstrap_javascript %}
+        {% endblock %}
+    {% endblock %} 
+</div>
 </body>
 </html>
