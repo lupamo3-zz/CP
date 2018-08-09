@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Business
+from django.shortcuts import render, get_object_or_404
+from .models import Business, Entry
 from .forms import BusinessForm
 
 # Create your views here.
@@ -20,3 +20,4 @@ def invest(request):
     else:
         form=BusinessForm()
     return render(request, 'gjenge.html', {"jpg":jpg, "form":form})
+

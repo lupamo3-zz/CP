@@ -86,21 +86,7 @@ body {
 
     {% endfor %}
 </div>
-<div class="col-sm-6">
-        {% for jpg in jpg %}
-        <img src="{{jpg.locationjpg.url}}" class="img-responsive" alt="Image">
-        <h2 class="text-center">{{ jpg.investidea }}</h2>
-        <h2 class="text-center">
-        {% autoescape on %}
-        {{jpg.post| safe}}
-       {% endautoescape %} </h2> 
-        <h2 class="text-center">{{ jpg.pub_date }}</h2>
-        {% empty %}
-<div class="row">
-    <h2 class="text-center">There No News Items</h2>
-</div>
-        {% endfor %}
-</div>
+
 </div>
 
 <form  action="{%url 'invest' %}" method="post" enctype="multipart/form-data">

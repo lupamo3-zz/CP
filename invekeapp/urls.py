@@ -6,6 +6,7 @@ from . import views
 urlpatterns=[
     url(r'^$', views.home, name='home'),
     url(r'^invest/', views.invest, name='invest'),
+
 ]
 
 if settings.DEBUG:
