@@ -36,8 +36,16 @@ def opportunity(request):
     return render(request, 'opportunity.html')
 
 def news(request):
+    entries = Entry.get_all()
+    if request.method=='POST':
+        form=NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            investment=form.save(commit=False)
+            investment.save()
+    else:
+        form=NewsForm()
     
-    return render(request, 'news.html')
+    return render(request, 'news.html' , { 'entries': entries, 'form':form })
 
 def aboutus(request):
     
@@ -46,6 +54,10 @@ def aboutus(request):
 def contactus(request):
     
     return render(request, 'contactus.html')
+
+def agribusiness(request):
+
+    return render(request, 'agribusiness.html')
 
 def signup(request):
     if request.method == 'POST':

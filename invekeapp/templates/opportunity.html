@@ -67,13 +67,35 @@
         .show {
             display: block;
         }
-    </style>
+    
+
+
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    bottom: 350px;
+    right: 20px;
+    background-color: #4C2C14;
+    color: white;
+    padding-left: 20px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+/* Bottom right text */
+
+</style>
 
 </head>
 
 <body>
 
-    <div class="clock"></div>
+    <div class="clock">
+    <div class="text-block"> 
+    <h4>Invest</h4>
+    <p>Invest In Kenya </p>
+    </div>
+    </div>
 
     <div class="container">
         <h1> Investment Opportunities In Kenya </h1>
@@ -85,7 +107,7 @@
                         <div class="dropdown">
                             <button onclick="myFunction()" class="dropbtn">Agriculture</button>
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="#home">Agri-business</a>
+                                <a href="{ url 'agribusiness' }">Agri-business</a>
                                 <a href="#about">Irrigation Schemes</a>
                                 <a href="#contact">Green Houses</a>
                             </div>

@@ -11,6 +11,7 @@ urlpatterns=[
     url(r'^news/', views.news, name='news'),
     url(r'^aboutus/', views.aboutus, name='aboutus'),
     url(r'^contactus/', views.contactus, name='contactus'),
+    url(r'^agribusiness/', views.agribusiness, name='agribusiness'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
     url(r'^login/$', auth_views.login, {'template_name': 'register/login.html'}, name='login'),
